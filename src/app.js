@@ -1,11 +1,10 @@
 const express = require('express')
 const mongoose = require('./mongoose')
 const routes = require('./routes')
+const config = require('../config.json')
 
 const startServer = () => {
   const app = express()
-  // DOTENV
-  require('dotenv').config()
   // Load MongoDB
   mongoose()
 
@@ -17,7 +16,7 @@ const startServer = () => {
   })
 
   // Listening express PORT
-  const PORT = process.env.PORT
+  const PORT = config.port
   app.listen(PORT, () => {
     console.log(`Pizzola server listening on port: ${PORT}`)
   })

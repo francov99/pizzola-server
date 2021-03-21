@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
+const config = require('../../config.json')
 
 module.exports = async () => {
   try {
-    const uri = process.env.MONGODB_URI
-    const connection = await mongoose.connect(uri, {
+    const connection = await mongoose.connect(config.mongodb_uri, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
@@ -12,6 +12,6 @@ module.exports = async () => {
     return connection.connection.db
   } catch (error) {
     console.error(`Error: ${error} `)
-    process.exit(1) //passing 1 - will exit the proccess with error
+    process.exit(1)
   }
 }

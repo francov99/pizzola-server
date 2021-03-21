@@ -1,16 +1,18 @@
 # Pizzola :pizza:
 
-![pizzola]("./logo.svg")
+Este es el backend usado para pizzola usando nodejs y nginx.
 
-Este es el backend usado para pizzola.
+![pizzola](./assets/logo.svg)
 
 ### Dependencias
  
-- Nodejs
-- NPM
+- node
+- npm
+- nginx
 
 ## Ejecutar el servidor
 
+- configura el archivo `config.json`, puedes basarte en el `config.example.json`
 - npm start
 
 ## Rutas de expressjs
