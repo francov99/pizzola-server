@@ -5,10 +5,11 @@ const config = require('../config.json')
 
 const startServer = () => {
   const allowCrossDomain = (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header("Access-Control-Allow-Methods", "GET", "PUT", "POST", "DELETE", "OPTIONS");
-    res.header('Access-Control-Allow-Headers', '*')
-    next()
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
   }
 
   const app = express()
