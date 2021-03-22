@@ -4,12 +4,19 @@ const routes = require('./routes')
 const config = require('../config.json')
 
 const startServer = () => {
+  const allowCrossDomain = (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', '*')
+    next()
+  }
+
   const app = express()
   // Load MongoDB
   mongoose()
 
   // Middlewares
   app.use(express.json())
+  app.use(allowCrossDomain)
   app.use('/menu', routes)
   app.get('/status', (req, res) => {
     res.status(200).json({ status: 200 }).end()
